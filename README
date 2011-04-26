@@ -9,21 +9,26 @@ This program is missing a line - it counts the number of times it sees a lowerca
 Questions: 
 
    What does record_init do?
-   Why is eat_extra_input necissary?
+     The record_init function takes no arguments, set an integer variable, and executes a block which creates a hash called records which is 26 elements long and the first key starts at 97 and increments by 1 and the value for each record is 0. So it creates a hash 26 elements long. It sets up the storage hash for counting the frequency of the occurances of each lowercase letter input.
+   Why is eat_extra_input necessary?
+     It deals with any input after one character upto a newline.The program has to know what to do with this input.
    How could read_char be implemented differently?
+     The read_char function could accept a string and then split off the first character from that string.
     -- How would that change eat_extra_input?
+         The eat_extra_input function wouldn't be necessary then since the useful information (the first character) would be returned and the remainder of the string wouldn't have a reference to it. How does C handle garbage collection? Would the rest of the string have to be manually tagged for garbage collection?
 
    When you enter a number at the prompt the program says and assertion is violated - What is this assertion?
+     The assertion is for the ascii value of the first character minus 97 to be greater than or equal to 0 and no greater than 25. This ensures the character is a lower case letter.
    Why is the assertion violated? 
-
+     The assertion is violated because the ascii value for a number minus 97 does not fall between the range 0 to 25.
    What are assertions good for?
-
+     Assertions are good for sanitizing data.
    What line of code is missing from the program?
-
+     There is a line missing in the record_char function. After the two assertions have been met, the value in the records hash that corresponds to the key for the letter needs to increment by one.
    What are all of limitations of this program?
-	
+	   One of the limitations is I am uncertain what all of the limitations of this program are. One limitation is the lack of error rescue when the input fails the assertions. Rather than the program quitting, the user should get another opportunity to input data. Another limitation is the frequency of the input letters isn't shown until after the program has been exited.
    How could this program be extended to support numbers?
-
+     Both the record_char and the record_init functions would have to accept and create space for character values in the range 48 to 57 in addition to the currently supported range of 97 to 122.
    How could this program be extended to support chinese characters? 
 
    How could this program be extended to support the entire UNICODE character set?
