@@ -17,6 +17,7 @@ Questions:
     -- How would that change eat_extra_input?
          The eat_extra_input function wouldn't be necessary then since the useful information (the first character) would be returned and the remainder of the string wouldn't have a reference to it. How does C handle garbage collection? Would the rest of the string have to be manually tagged for garbage collection?
 
+   NEXT PORTION of the ASSIGNMENT
    When you enter a number at the prompt the program says and assertion is violated - What is this assertion?
      The assertion is for the ascii value of the first character minus 97 to be greater than or equal to 0 and no greater than 25. This ensures the character is a lower case letter.
    Why is the assertion violated? 

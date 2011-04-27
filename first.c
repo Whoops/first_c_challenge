@@ -20,19 +20,18 @@ struct record_s {
 	int value;
 };
 typedef struct record_s record;
-#define MAX_REC 26
+#define MAX_REC 36
 static record records[MAX_REC];
 void record_init() {
 	int i;
 	for(i = 0; i < MAX_REC; i++) {
-		records[i].key   = (97+i);
+		records[i].key   = (48+i); /* up to 57 then 97 + i up to 122 */
 		records[i].value = 0;
 	}
 }
 void record_char(char c) {
-	assert(c-97 >= 0);
-	assert(c-97 < MAX_REC);
-  records[c-97].value = records[c-97].value++; /* lookup the records.key that corresponds to c and increment the value of that index by 1 */
+	assert(((c-97 >= 0) && (c-123 < 0)) || ((c-48 >= 0) && (c-58 < 0)));
+  records[c-97].value = records[c-97].value++;
 }
 
 void record_print() {
