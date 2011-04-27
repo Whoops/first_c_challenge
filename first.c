@@ -32,6 +32,7 @@ void record_init() {
 void record_char(char c) {
 	assert(c-97 >= 0);
 	assert(c-97 < MAX_REC);
+  records[c-97].value = records[c-97].value++; /* lookup the records.key that corresponds to c and increment the value of that index by 1 */
 }
 
 void record_print() {
