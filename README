@@ -30,17 +30,17 @@ Questions:
    How could this program be extended to support numbers?
      Both the record_char and the record_init functions would have to accept and create space for character values in the range 48 to 57 in addition to the currently supported range of 97 to 122.
    How could this program be extended to support chinese characters? 
-
+     Unicode
    How could this program be extended to support the entire UNICODE character set?
-
+     Black hole of unicode.
    Extra ;
 
     What is a Makefile
-
-    Why does 'make' without any arguments compile the code.
+      It is a file which executes when make is run.
+    Why does 'make' without any arguments compile the code.     That is the instructions inside of the Makefile.
 
     Why does running 'make' once and then 'make' a second time say 'nothing to be done for `all`'?
-  
+      The compiled file exists.
 Tips :
 
   requires 'GNUMake' and 'GCC' and optionally 'GDB'.
