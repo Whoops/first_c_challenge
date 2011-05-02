@@ -34,9 +34,7 @@ void record_init() {
 	}
 }
 int char_hash(char c) {
-  if ((c < 48) ^ (c > 57)) && ((c < 97) ^ (c > 122)) {
-    raise Exception.new 'property violated';
-  }
+  assert ((c < 48) || (c > 57)) && ((c < 97) || (c > 122));
   return (c > 96 ? c - 97 : c - 22);
 }
 void record_char(char c) {
