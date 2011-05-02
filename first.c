@@ -34,15 +34,15 @@ void record_init() {
 	}
 }
 int char_hash(char c) {
-  assert ((c < 48) || (c > 57)) && ((c < 97) || (c > 122));
+  /* assert(((c < 48) || (c > 57)) && ((c < 97) || (c > 122))); */
+  assert(((c > 47) && (c < 58)) || ((c > 96) && (c < 123)));
   return (c > 96 ? c - 97 : c - 22);
 }
 void record_char(char c) {
-  char_hash(c);
-	/* assert(((c-97 >= 0) && (c-123 < 0)) || ((c-48 >= 0) && (c-58 < 0))); */
-  records[c].value = records[c].value++;
+  int index;
+  index = char_hash(c);
+  records[index].value = records[index].value++;
 }
-
 void record_print() {
 	int i = 0;
 	printf("Records\n");	
