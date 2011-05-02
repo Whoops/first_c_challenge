@@ -34,7 +34,6 @@ void record_init() {
 	}
 }
 int char_hash(char c) {
-  /* assert(((c < 48) || (c > 57)) && ((c < 97) || (c > 122))); */
   assert(((c > 47) && (c < 58)) || ((c > 96) && (c < 123)));
   return (c > 96 ? c - 97 : c - 22);
 }
