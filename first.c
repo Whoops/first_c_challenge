@@ -24,14 +24,25 @@ typedef struct record_s record;
 static record records[MAX_REC];
 void record_init() {
 	int i;
-	for(i = 0; i < MAX_REC; i++) {
-		records[i].key   = (48+i); /* up to 57 then 97 + i up to 122 */
+	for(i = 0; i < 26; i++) {
+		records[i].key   = (97+i);
+		records[i].value = 0;
+	}
+  for(i = 26; i < MAX_REC; i++) {
+		records[i].key   = (22+i);
 		records[i].value = 0;
 	}
 }
+void char_hash(char c) {
+  if ((c < 48) ^ (c > 57)) && ((c < 97) ^ (c > 122)) {
+    raise Exception.new 'property violated';
+  }
+  return (c > 96 ? c - 97 : c - 22);
+}
 void record_char(char c) {
-	assert(((c-97 >= 0) && (c-123 < 0)) || ((c-48 >= 0) && (c-58 < 0)));
-  records[c-97].value = records[c-97].value++;
+  char_hash(c);
+	/* assert(((c-97 >= 0) && (c-123 < 0)) || ((c-48 >= 0) && (c-58 < 0))); */
+  records[c].value = records[c].value++;
 }
 
 void record_print() {
