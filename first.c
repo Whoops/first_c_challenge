@@ -28,19 +28,19 @@ void record_init() {
 		records[i].key   = (97+i);
 		records[i].value = 0;
 	}
-  for(i = 26; i < MAX_REC; i++) {
+	for(i = 26; i < MAX_REC; i++) {
 		records[i].key   = (22+i);
 		records[i].value = 0;
 	}
 }
 int char_hash(char c) {
-  assert(((c > 47) && (c < 58)) || ((c > 96) && (c < 123)));
-  return (c > 96 ? c - 97 : c - 22);
+	assert(((c > 47) && (c < 58)) || ((c > 96) && (c < 123)));
+	return (c > 96 ? c - 97 : c - 22);
 }
 void record_char(char c) {
-  int index;
-  index = char_hash(c);
-  records[index].value = records[index].value++;
+	int index;
+	index = char_hash(c);
+	records[index].value = records[index].value++;
 }
 void record_print() {
 	int i = 0;
