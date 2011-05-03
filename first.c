@@ -43,7 +43,7 @@ void record_init() {
 }
 
 int char_hash(char c) {
-	assert(((c > 47) && (c < 58)) || ((c > 96) && (c < 123)));
+	assert(((c >= '1') && (c <= '9')) || ((c >= 'a') && (c <= 'z')));
 	return (c > 96 ? c - 97 : c - 22);
 }
 
