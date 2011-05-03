@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <assert.h>
 
+#define MAX_REC 36
+
+struct record_s {
+	char key;
+	int value;
+};
+typedef struct record_s record;
+
+static record records[MAX_REC];
+
 void echo_char(c) {
 	printf("You entered %c\n",c);
 }
@@ -15,13 +25,6 @@ char read_char() {
 void eat_extra_input() {
 	while (getchar() != '\n'); /* discard any other input upto newline */
 }
-struct record_s {
-	char key;
-	int value;
-};
-typedef struct record_s record;
-#define MAX_REC 36
-static record records[MAX_REC];
 void record_init() {
 	int i;
 	for(i = 0; i < 26; i++) {
